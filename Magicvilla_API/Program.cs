@@ -1,3 +1,4 @@
+using Magicvilla_API;
 using Magicvilla_API.Datos;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +16,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefualtConnection"));
 });
-
+builder .Services.AddAutoMapper(typeof(Mappinconfig));
+ 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
